@@ -45,4 +45,5 @@ jobs:
           git config --global user.name "Sameera Dissanayaka"
           git add deploy.yml
           git commit -m "Update deployment image tag to ${{ github.run_number }}"
+          git remote set-url origin https://$GITHUB_ACTOR:${{ secrets.PAT }}@github.com/iam-sameera/githubactions-k8smanifest.git
           git push origin main
