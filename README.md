@@ -8,7 +8,7 @@ Before you begin, ensure you have the following:
 
 - A GitHub account
 - A Docker Hub account
-- Docker installed locally
+
 
 ## Setting up GitHub Actions
 
@@ -27,7 +27,7 @@ Before you begin, ensure you have the following:
 4. **Configure Workflow**:
 
    - In your forked repository, navigate to the `.github/workflows` directory.
-   - Edit the `docker-build.yml` file.
+   - Edit the `build-and-push.yml` file.
    - Replace `<your_docker_username>/<your_docker_repository>` with your Docker Hub repository name.
 
 5. **Commit Changes**:
