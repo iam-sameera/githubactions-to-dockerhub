@@ -24,24 +24,20 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile #Here define path to your dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             devopswithsam/githubactions:latest
-            # Fetch deployment YAML from k8smanifest repository
+            devopswithsam/githubactions:${{ github.run_number }}
       - name: Fetch k8smanifest repository
         uses: actions/checkout@v2
         with:
-          repository: iam-sameera/githubactions-k8smanifest  # Replace with your repository
-          path: githubactions-k8smanifest  # Path within the repository
-
-      # Update deployment YAML with the new image tag
+          repository: iam-sameera/githubactions-k8smanifest
+          path: githubactions-k8smanifest
       - name: Update deployment YAML
         run: |
           sed -i "s|image: devopswithsam/githubactions:[0-9]*|image: devopswithsam/githubactions:${{ github.run_number }}|g" githubactions-k8smanifest/deploy.yml
-
-      # Commit and push changes to k8smanifest repository
       - name: Commit and push changes
         run: |
           cd githubactions-k8smanifest
@@ -50,5 +46,3 @@ jobs:
           git add deploy.yml
           git commit -m "Update deployment image tag to ${{ github.run_number }}"
           git push origin main
-
-                        
