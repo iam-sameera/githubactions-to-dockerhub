@@ -1,5 +1,7 @@
 # GitHub Actions for Building and Pushing Docker Image to Docker Hub
 
+[Full Tutorial ](https://medium.com/@sameeradissanayaka/how-to-use-github-actions-to-build-and-push-docker-image-to-docker-hub-3cba4170d98e)
+
 This repository contains GitHub Actions workflows to automatically build a Docker image and push it to Docker Hub whenever changes are pushed to the specified branch.
 
 ## Prerequisites
